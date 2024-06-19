@@ -3,7 +3,7 @@ import { Skill } from "@/typings";
 export const fetchSkill = async () => {
   // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`);
   const res = await fetch(
-    `https://dark-portfolio-ij19hvssr-deveneandres-projects.vercel.app/api/getSkills`
+    `https://devandre-dark-portfolio.netlify.app/api/getSkills`
   );
 
   const data = await res.json();

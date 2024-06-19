@@ -22,7 +22,7 @@ function About({ pageInfo }: Props) {
       }}
       className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-400 text-2xl">
         About
       </h3>
 
@@ -47,7 +47,7 @@ function About({ pageInfo }: Props) {
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">
           Here is a{" "}
-          <span className="underline decoration-[#a84b4b]/40">little</span>{" "}
+          <span className="underline decoration-[#a84b4b]/40">little</span>
           background{" "}
         </h4>
         <p className="text-base">{pageInfo.backgroundInformation}</p>
