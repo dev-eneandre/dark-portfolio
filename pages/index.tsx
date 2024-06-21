@@ -7,7 +7,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { Experience, PageInfo, Project, Skill, Social } from "@/typings";
 import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchExperiences } from "@/utils/fetchExperiences";
@@ -18,17 +18,17 @@ import { useEffect } from "react";
 
 type Props = {
   pageInfo: PageInfo;
-  // experiences: Experience[];
-  // skills: Skill[];
-  // projects: Project[];
-  // socials: Social[];
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
 };
 export default function Home({
   pageInfo,
-  // experiences,
-  // skills,
-  // projects,
-  // socials,
+  experiences,
+  skills,
+  projects,
+  socials,
 }: Props) {
   useEffect(() => {
     console.log(process.env.NEXT_PUBLIC_BASE_URL);
@@ -40,14 +40,14 @@ export default function Home({
         <title>Next Js Portfolio</title>
       </Head>
 
-      {/* <Header socials={socials} /> */}
+      <Header socials={socials} />
 
       {/* Hero section  */}
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
-      {/* <div>
+    
         <section id="about" className="snap-center">
           <About pageInfo={pageInfo} />
         </section>
@@ -63,7 +63,7 @@ export default function Home({
         <section id="contact" className="snap-start">
           <ContactMe />
         </section>
-      </div> */}
+
 
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
@@ -80,21 +80,21 @@ export default function Home({
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
-  // const experiences: Experience[] = await fetchExperiences();
-  // const skills: Skill[] = await fetchSkill();
-  // const projects: Project[] = await fetchProjects();
-  // const socials: Social[] = await fetchSocial();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Skill[] = await fetchSkill();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocial();
 
   return {
     props: {
       pageInfo,
-      // experiences,
-      // skills,
-      // projects,
-      // socials,
+      experiences,
+      skills,
+      projects,
+      socials,
     },
-    revalidate: 10,
+    // revalidate: 10,
   };
 };
