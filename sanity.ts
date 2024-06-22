@@ -4,7 +4,7 @@ import createImageUrlBuilder from "@sanity/image-url";
 
 export const config = {
   dataset: "production",
-  projectId: "https://vercel.com/deveneandres-projects/dark-portfolio",
+  projectId: "6dnyx7ph",
   apiVersion: "2024-06-14",
   useCdn: process.env.NODE_ENV === "production",
 };
