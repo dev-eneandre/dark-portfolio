@@ -50,6 +50,12 @@ export default defineType({
       of: [{ type: "reference", to: { type: "skill" } }],
     },
     {
+      name: "points",
+      title: "Points",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
       name: "linkToBuild",
       title: "LinkToBuild",
       type: "url",

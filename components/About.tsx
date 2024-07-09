@@ -42,15 +42,13 @@ function About({ pageInfo }: Props) {
         viewport={{
           once: true,
         }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[450px] "
+        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-56 md:h-80 xl:w-[400px] xl:h-[450px] "
       />
       <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-4xl font-semibold">
-          Here is a{" "}
-          <span className="underline decoration-[#a84b4b]/40">little</span>
-          background{" "}
+        <h4 className="text-4xl font-[500] capitalize font-arvo">
+          Here is a little about me 
         </h4>
-        <p className="text-base">{pageInfo.backgroundInformation}</p>
+        <p className="text-lg text-gray-50 text-justify nuni-sans ">{pageInfo.backgroundInformation}</p>
       </div>
     </motion.div>
   );

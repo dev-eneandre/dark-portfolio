@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
@@ -25,7 +25,7 @@ function Projects({ projects }: Props) {
     
      text-left md:flex-row max-w-full justify-center mx-auto items-center z-0"
     >
-      <h3 className="absolute top-10 text-center uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute w-full top-10 text-center uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#a84b4b]/80">
@@ -50,18 +50,19 @@ function Projects({ projects }: Props) {
                 once: true,
               }}
               src={urlFor(project.image).url()}
-              className="w-44 h-40 object-cover object-center"
+              className="w-[80vh] h-2/3 rounded-md object-cover object-center"
               alt=""
             />
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-4xl font-semibold text-center">
-                <span className="underline decoration-[#a84b4b]/50">
-                  Case Study {i + 1} of {projects.length}:
-                </span>
+              <h4 className="text-4xl font-arvo font-[500] text-center underline decoration-[#a84b4b]/50 underline-offset-8">
+                <span className="">
+                  Project {i + 1} of {projects.length}:
+                </span>{" "}
                 {project.title}
               </h4>
               <div className="flex flex-row space-x-3 items-center justify-center">
                 {project.technologies.map((technology, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     key={i}
                     className="h-9 w-9 "
@@ -70,7 +71,7 @@ function Projects({ projects }: Props) {
                   />
                 ))}
               </div>
-              <p className="text-lg text-center md:text-left">
+              <p className="text-lg !text-center md:text-left max-w-[50%] mx-auto">
                 {project.summary}
               </p>
             </div>

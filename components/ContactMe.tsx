@@ -12,32 +12,32 @@ type FormValues = {
 type Props = {};
 const ContactMe = (props: Props) => {
   const { register, handleSubmit } = useForm<FormValues>();
-  const onSubmit: SubmitHandler<FormValues> = (formData) => {
-    
-  };
+  const onSubmit: SubmitHandler<FormValues> = (formData) => {};
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center ">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl font-arvo">
         Contact
       </h3>
 
       <div className="flex flex-col space-y-10">
-        <h4 className="text-4xl font-semibold text-center">
+        <h4 className="text-4xl font-[500] text-center font-arvo ">
           {`I've got just what you need `}
-          <span className="underline decoration-[#a84b4b]/50">Lets Talk.</span>
+          <span className="underline decoration-[#a84b4b]/50 underline-offset-8">
+            Lets Talk.
+          </span>
         </h4>
-        <div className="">
+        <div className="font-nuni-sans">
           <div className="flex items-center justify-center space-x-5">
-            <PhoneIcon className="text-[#a84b4b] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+23490909090</p>
+            <EnvelopeIcon className="text-[#a84b4b] h-6 w-6 animate-pulse" />
+            <p className="text-xl">iameneandre@gmail.com</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
-            <EnvelopeIcon className="text-[#a84b4b] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">iameneandre@gmail.com</p>
+            <MapPinIcon className="text-[#a84b4b] h-6 w-6 animate-pulse" />
+            <p className="text-xl">123, Developer Lane</p>
           </div>
           <div className="flex items-center justify-center space-x-5">
-            <MapPinIcon className="text-[#a84b4b] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">123, Developer Lane</p>
+            <PhoneIcon className="text-[#a84b4b] h-6 w-6 animate-pulse" />
+            <p className="text-xl">+23490909090</p>
           </div>
         </div>
 
