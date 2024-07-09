@@ -22,7 +22,7 @@ function About({ pageInfo }: Props) {
       }}
       className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-400 text-2xl">
+      <h3 className="absolute lg:top-24 uppercase tracking-[20px] text-gray-400 text-2xl">
         About
       </h3>
 
@@ -42,13 +42,13 @@ function About({ pageInfo }: Props) {
         viewport={{
           once: true,
         }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-56 md:h-80 xl:w-[400px] xl:h-[450px] "
+        className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-48 md:h-64 xl:w-[350px] xl:h-[400px] "
       />
       <div className="space-y-10 px-0 md:px-10">
-        <h4 className="text-4xl font-[500] capitalize font-arvo">
+        <h4 className="xl:text-3xl text-xl font-[500] capitalize font-arvo">
           Here is a little about me 
         </h4>
-        <p className="text-lg text-gray-50 text-justify nuni-sans ">{pageInfo.backgroundInformation}</p>
+        <p className="xl:text-[18px] text-gray-50 text-justify nuni-sans ">{pageInfo.backgroundInformation}</p>
       </div>
     </motion.div>
   );
