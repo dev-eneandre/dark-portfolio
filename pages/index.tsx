@@ -14,7 +14,6 @@ import { fetchExperiences } from "@/utils/fetchExperiences";
 import { fetchSkill } from "@/utils/fetchSkills";
 import { fetchProjects } from "@/utils/fetchProjects";
 import { fetchSocial } from "@/utils/fetchSocials";
-import SmallLogo from "@/public/image/small-logo.png";
 
 type Props = {
   pageInfo: PageInfo;

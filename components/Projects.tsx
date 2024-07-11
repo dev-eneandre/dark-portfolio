@@ -25,7 +25,7 @@ function Projects({ projects }: Props) {
     
      text-left md:flex-row max-w-full justify-center mx-auto items-center z-0"
     >
-      <h3 className="absolute w-full top-10 text-center uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute w-full  lg:top-24 top-6 text-center uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#a84b4b]/80">
@@ -54,7 +54,7 @@ function Projects({ projects }: Props) {
               alt=""
             />
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-4xl font-arvo font-[500] text-center underline decoration-[#a84b4b]/50 underline-offset-8">
+              <h4 className="md:text-4xl text-2xl font-arvo font-[500] text-center underline decoration-[#a84b4b]/50 underline-offset-8">
                 <span className="">
                   Project {i + 1} of {projects.length}:
                 </span>{" "}
@@ -71,7 +71,7 @@ function Projects({ projects }: Props) {
                   />
                 ))}
               </div>
-              <p className="text-lg !text-center md:text-left max-w-[50%] mx-auto">
+              <p className="text-lg !text-center md:text-left md:max-w-[50%] mx-auto">
                 {project.summary}
               </p>
             </div>

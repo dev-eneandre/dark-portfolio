@@ -55,12 +55,12 @@ export default function Header({ socials }: Props) {
       >
         <SocialIcon
           className="cursor-pointer"
-          url="https://www.linkedin.com/in/andreene/"
+          url="https://ene-andre.netlify.app/"
           fgColor="gray"
           bgColor="transparent"
         />
         <span className="uppercase hidden md:inline-flex text-sm text-gray-400 mt-1">
-          Get In Touch
+          Other Portfolio
         </span>
       </motion.div>
     </header>
