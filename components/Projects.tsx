@@ -10,6 +10,13 @@ type Props = {
 };
 
 function Projects({ projects }: Props) {
+  projects.sort((a, b) => {
+    const dateA = new Date(a._createdAt).getTime();
+    const dateB = new Date(b._createdAt).getTime();
+
+    return dateB - dateA;
+  });
+  
   return (
     <motion.div
       initial={{

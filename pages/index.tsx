@@ -36,26 +36,24 @@ export default function Home({
         <link rel="icon" href="/image/small-logo.png" />
       </Head>
       <Header socials={socials} />
-
-      <section id="hero" className="snap-start">
+      <section id="hero">
         <Hero pageInfo={pageInfo} />
       </section>
-      <section id="about" className="snap-center">
+      <section id="about">
         <About pageInfo={pageInfo} />
       </section>
-      <section id="experience" className="snap-center">
+      <section id="experience">
         <WorkExperience experiences={experiences} />
       </section>
-      <section id="skills" className="snap-start">
-        <Skills skills={skills} />
-      </section>
-      <section id="projects" className="snap-start">
+      <section id="projects">
         <Projects projects={projects} />
       </section>
-      <section id="contact" className="snap-start">
+      <section id="skills">
+        <Skills skills={skills} />
+      </section>
+      <section id="contact">
         <ContactMe />
       </section>
-
       <Link href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
