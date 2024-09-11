@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
+import Link from "next/link";
 
 type Props = {
   projects: Project[];
@@ -16,7 +17,7 @@ function Projects({ projects }: Props) {
 
     return dateB - dateA;
   });
-  
+
   return (
     <motion.div
       initial={{
@@ -37,7 +38,9 @@ function Projects({ projects }: Props) {
       </h3>
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#a84b4b]/80">
         {projects?.map((project, i) => (
-          <div
+          <Link
+            href={project.linkToBuild}
+            target="_blank"
             key={i}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
           >
@@ -58,7 +61,7 @@ function Projects({ projects }: Props) {
               }}
               src={urlFor(project.image).url()}
               className="w-[80vh] h-2/3 rounded-md object-cover object-center"
-              alt=""
+              alt="Project Image"
             />
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="md:text-4xl text-2xl font-arvo font-[500] text-center underline decoration-[#a84b4b]/50 underline-offset-8">
@@ -82,7 +85,7 @@ function Projects({ projects }: Props) {
                 {project.summary}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="w-full absolute top-[30%] bg-[#a84b4b]/10 left-0 h-[500px] -skew-y-12" />
