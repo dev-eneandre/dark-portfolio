@@ -35,7 +35,7 @@ function Projects({ projects }: Props) {
       <Carousel>
         <CarouselContent className="-ml-4">
           {projects?.map((project, i) => (
-            <CarouselItem className="2xl:basis-1/3 xl:basis-1/2 basis-full pl-4">
+            <CarouselItem key={project.linkToBuild} className="2xl:basis-1/3 xl:basis-1/2 basis-full pl-4">
               {" "}
               <Link
                 href={project.linkToBuild}
