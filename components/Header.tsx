@@ -55,7 +55,7 @@ export default function Header({ socials }: Props) {
       >
         <SocialIcon
           className="cursor-pointer"
-          url="https://ene-andre.netlify.app/"
+          url="https://andre-shack.netlify.app/"
           fgColor="gray"
           bgColor="transparent"
         />
