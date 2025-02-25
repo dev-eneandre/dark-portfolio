@@ -34,34 +34,9 @@ export default function Header({ socials }: Props) {
             url={social.url}
             fgColor="gray"
             bgColor="transparent"
+            className="text-[#0891B2] h-6 w-6 animate-pulse"
           />
         ))}
-      </motion.div>
-      <motion.div
-        initial={{
-          x: 500,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 1.5,
-        }}
-        className="flex flex-row items-center cursor-pointer"
-      >
-        <SocialIcon
-          className="cursor-pointer"
-          url="https://andre-shack.netlify.app/"
-          fgColor="gray"
-          bgColor="transparent"
-        />
-        <span className="uppercase hidden md:inline-flex text-sm text-gray-400 mt-1">
-          Other Portfolio
-        </span>
       </motion.div>
     </header>
   );

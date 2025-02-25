@@ -22,11 +22,11 @@ const Skills = ({ skills }: Props) => {
       }}
       className="min-h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-[2000px] xl:px-10 justify-center xl:space-y-0 mx-auto items-center"
     >
-      <h3 className="absolute lg:top-24 top-16  uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute lg:top-24 top-16 uppercase tracking-[20px] text-[#E0E0E0]/80 text-2xl">
         Skills
       </h3>
 
-      <h3 className="absolute  lg:top-36 top-24  uppercase tracking-[3px] text-gray-500 text-sm">
+      <h3 className="absolute  lg:top-36 top-24 uppercase tracking-[3px] text-[#E0E0E0]/80  text-sm">
         Hover over a skill for currency proficiency
       </h3>
 

@@ -11,7 +11,7 @@ const ExperienceCard = ({ experience }: Props) => {
   return (
     <article
       className="flex flex-col justify-between space-y-6 rounded-lg items-start flex-shrink-0
-    xl:h-[60vh] w-[500px] md:w-[600px] xl:w-[850px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-80 cursor-pointer transition-opacity duration-200 overflow-hidden"
+    xl:h-[60vh] w-[500px] md:w-[600px] xl:w-[850px] snap-center bg-[#0f121f] border-l-2 border-white p-10 hover:opacity-100 opacity-80 cursor-pointer transition-opacity duration-200 overflow-hidden"
     >
       <p className="text-4xl font-arvo font-[500] !mb-5">
         {experience?.jobTitle} @ {experience?.companyName}

@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
@@ -13,7 +14,7 @@ type Props = {
 function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      `Hi, The Name's ${pageInfo?.name}`,
+      `Hey, i'm ${pageInfo?.name}`,
       "A-girl-who-loves-Design",
       "<ButLovesToCodeMore />",
     ],
@@ -35,7 +36,7 @@ function Hero({ pageInfo }: Props) {
         </h2>
         <h1 className="text-2xl lg:text-5xl font-semibold px-10">
           <span className="mr-2">{text}</span>
-          <Cursor cursorColor="#a84b4b" />
+          <Cursor cursorColor="#0891B2" />
         </h1>
 
         <div className="pt-5">

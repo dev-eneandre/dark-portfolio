@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // 'primary-theme-color': '#a84b4b',
+        // 'primary-theme-color': 'cyan-600',
         "primary-themes-color": "#ffffff",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -69,6 +69,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("tailwindcss-animate")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("tailwindcss-animate"),
+    require("@tailwindcss/line-clamp"),
+  ],
 };
 export default config;
