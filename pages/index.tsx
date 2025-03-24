@@ -39,15 +39,16 @@ export default function Home({
       <section id="hero">
         <Hero pageInfo={pageInfo} />
       </section>
+      <section id="projects">
+        <Projects projects={projects} />
+      </section>
       <section id="about">
         <About pageInfo={pageInfo} />
       </section>
       <section id="experience">
         <WorkExperience experiences={experiences} />
       </section>
-      <section id="projects">
-        <Projects projects={projects} />
-      </section>
+ 
       <section id="skills">
         <Skills skills={skills} />
       </section>
