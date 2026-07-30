@@ -1,58 +1,56 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { PageInfo } from "@/typings";
-import { urlFor } from "@/sanity";
+import { profileImages } from "@/lib/profileImages";
+import SectionHeader from "./SectionHeader";
+import { defaultTransition, fadeInUp } from "@/lib/motion";
 
 type Props = {
   pageInfo: PageInfo;
 };
 
 function About({ pageInfo }: Props) {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1.5,
-      }}
-      className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
-    >
-      <h3 className="absolute lg:top-24 top-16 uppercase tracking-[20px] text-[#E0E0E0]/80 text-2xl">
-        About
-      </h3>
+  const prefersReducedMotion = useReducedMotion();
+  const motionProps = prefersReducedMotion
+    ? { initial: false, animate: "visible" }
+    : { initial: "hidden", whileInView: "visible", viewport: { once: true, margin: "-80px" } };
 
-      <motion.img
-        src={urlFor(pageInfo.profilePic).url()}
-        initial={{
-          x: -200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.2,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        className="-mb-20 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover md:rounded-lg md:w-48 md:h-64 xl:w-[350px] xl:h-[400px] "
+  return (
+    <div className="min-h-screen flex flex-col justify-center max-w-7xl px-4 md:px-10 py-24 md:py-28 mx-auto">
+      <SectionHeader
+        label="About"
+        title="Here is a little about me"
+        className="mb-10 md:mb-14"
       />
-      <div className="space-y-10 px-0 md:px-10 text-gray-300 ">
-        <h4 className="xl:text-3xl text-xl font-[500] capitalize font-arvo">
-          Here is a little about me
-        </h4>
-        <p className="xl:text-[18px]text-justify nuni-sans ">
-          {pageInfo.backgroundInformation}
-        </p>
+
+      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-14 lg:gap-16">
+        <motion.div
+          variants={fadeInUp}
+          transition={defaultTransition}
+          {...motionProps}
+          className="shrink-0"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={profileImages.about}
+            alt={pageInfo.name}
+            className="w-44 h-44 md:w-56 md:h-72 xl:w-[320px] xl:h-[380px] rounded-2xl object-cover object-top ring-1 ring-[#242424] shadow-lg shadow-black/30"
+          />
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUp}
+          transition={{ ...defaultTransition, delay: 0.08 }}
+          {...motionProps}
+          className="max-w-2xl text-center md:text-left"
+        >
+          <p className="text-base md:text-lg text-gray-300 leading-relaxed font-nuni-sans text-justify md:text-left">
+            {pageInfo.backgroundInformation}
+          </p>
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

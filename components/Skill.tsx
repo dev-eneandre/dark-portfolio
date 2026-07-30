@@ -1,36 +1,23 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+
 import { Skill as SkillType } from "@/typings";
 import { urlFor } from "@/sanity";
 
 type Props = {
   skill: SkillType;
-  directionLeft?: boolean;
 };
 
-const Skill = ({ directionLeft, skill }: Props) => {
+const Skill = ({ skill }: Props) => {
   return (
-    <div className="group relative flex cursor-pointer">
-      <motion.img
-        initial={{
-          x: directionLeft ? -200 : 200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        src={urlFor(skill?.image).url()}
-        className="rounded-full border border-gray-500 object-cover w-24 h-24  md:w-28 md:h-28 xl:w-24 xl:h-24  filter group-hover:grayscale transition duration-300 ease-in-out"
+    <div className="group relative flex cursor-default" title={skill.title}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={urlFor(skill.image).url()}
+        alt={skill.title}
+        className="rounded-full border border-[#242424] object-cover w-20 h-20 md:w-24 md:h-24 transition-all duration-300 group-hover:border-[#0891B2]/50 group-hover:scale-105"
       />
-      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-24 xl:h-24  rounded-full z-0">
-        <div className="flex items-center justify-center h-full">
-          <p className="text-3xl font-bold text-black">{skill?.progress}%</p>
-        </div>
+      <div className="absolute inset-0 flex items-center justify-center rounded-full bg-[#0891B2]/90 opacity-0 scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
+        <p className="text-lg md:text-xl font-bold text-white">{skill.progress}%</p>
       </div>
     </div>
   );

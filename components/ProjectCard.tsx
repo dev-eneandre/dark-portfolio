@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Technology } from "@/typings";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -24,41 +25,53 @@ export default function ProjectCard({
     <Link
       href={linkToBuild}
       target="_blank"
-      className="group relative overflow-hidden rounded-lg bg-slate-900 p-6 transition-all duration-300 hover:scale-[1.02]"
+      rel="noopener noreferrer"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0891B2] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0c15]"
     >
-      {/* Gradient border */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-[2rem]" />
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-400/80 to-purple-500/80 opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-[1px] rounded-[calc(1rem-1px)] bg-[#12111f]" />
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-[2px] bg-[#12111f] rounded-[calc(2rem-2px)] opacity-90" />
-
-      {/* Inner content wrapper */}
-      <div className="relative z-10 flex flex-col items-center">
-        {/* Ensure image has a defined height */}
-        <div className="relative w-full h-[180px] mb-4 overflow-hidden rounded-lg">
+      <div className="relative z-10 flex h-full flex-col p-5 md:p-6">
+        <div className="relative mb-4 h-[160px] w-full overflow-hidden rounded-xl md:h-[180px]">
           <Image
             src={imageUrl || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#12111f]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <span className="absolute bottom-3 right-3 flex items-center gap-1 rounded-full bg-[#0891B2]/90 px-3 py-1 text-xs font-medium text-white opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+            View live
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
         </div>
 
-        {/* Project Details */}
-        <h3 className="mb-2 text-xl font-bold text-white">{title}</h3>
-        <p className="mb-4 text-sm text-slate-300 line-clamp-3">{summary}</p>
+        <h3 className="mb-2 text-left text-lg font-bold text-white font-arvo md:text-xl">
+          {title}
+        </h3>
 
-        {/* Technologies List */}
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((tag: Technology) => (
-            <Badge
-              key={tag.title}
-              className="text-xs border border-slate-200 rounded-full"
-            >
-              #{tag.title}
-            </Badge>
-          ))}
-        </div>
+        <p className="mb-4 flex-grow text-left text-sm leading-relaxed text-gray-300 line-clamp-4">
+          {summary}
+        </p>
+
+        {technologies.length > 0 && (
+          <div className="mt-auto pt-2">
+            <p className="mb-2 text-left text-[10px] uppercase tracking-[0.2em] text-gray-500">
+              Built with
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {technologies.map((tag: Technology) => (
+                <Badge
+                  key={tag._id ?? tag.title}
+                  variant="outline"
+                  className="border-[#242424] bg-[#0a0c15]/50 text-[11px] text-gray-400 font-normal"
+                >
+                  {tag.title}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </Link>
   );
