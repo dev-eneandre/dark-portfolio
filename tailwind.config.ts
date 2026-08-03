@@ -72,7 +72,6 @@ const config: Config = {
   plugins: [
     require("tailwind-scrollbar"),
     require("tailwindcss-animate"),
-    require("@tailwindcss/line-clamp"),
   ],
 };
 export default config;
