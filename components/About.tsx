@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { PageInfo } from "@/typings";
 import { profileImages } from "@/lib/profileImages";
@@ -31,12 +32,15 @@ function About({ pageInfo }: Props) {
           {...motionProps}
           className="shrink-0"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={profileImages.about}
-            alt={pageInfo.name}
-            className="w-44 h-44 md:w-56 md:h-72 xl:w-[320px] xl:h-[380px] rounded-2xl object-cover object-top ring-1 ring-[#242424] shadow-lg shadow-black/30"
-          />
+          <div className="relative h-44 w-44 overflow-hidden rounded-2xl ring-1 ring-[#242424] shadow-lg shadow-black/30 md:h-72 md:w-56 xl:h-[380px] xl:w-[320px]">
+            <Image
+              src={profileImages.about}
+              alt={pageInfo.name}
+              fill
+              sizes="(max-width: 768px) 176px, (max-width: 1280px) 224px, 320px"
+              className="object-cover object-top"
+            />
+          </div>
         </motion.div>
 
         <motion.div
@@ -48,6 +52,11 @@ function About({ pageInfo }: Props) {
           <p className="text-base md:text-lg text-gray-300 leading-relaxed font-nuni-sans text-justify md:text-left">
             {pageInfo.backgroundInformation}
           </p>
+          {pageInfo.moreBackgroundInformation ? (
+            <p className="mt-6 text-base md:text-lg text-gray-300 leading-relaxed font-nuni-sans text-justify md:text-left">
+              {pageInfo.moreBackgroundInformation}
+            </p>
+          ) : null}
         </motion.div>
       </div>
     </div>

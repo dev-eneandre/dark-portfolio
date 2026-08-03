@@ -33,6 +33,11 @@ export default defineType({
       },
     },
     {
+      name: "moreBackgroundInformation",
+      title: "More Background Information",
+      type: "text",
+    },
+    {
       name: "profilePic",
       title: "ProfilePic",
       type: "image",
