@@ -1,0 +1,1 @@
+import{P as e}from"./dist-Bzsdl17G.js";var t=`variants`,n={locale:`en-US`,namespace:t,resources:()=>e(()=>import(`./resources-BfdRqhdp-CFoSvV7i.js`),[])};export{n,t};

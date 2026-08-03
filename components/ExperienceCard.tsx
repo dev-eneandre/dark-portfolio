@@ -1,7 +1,7 @@
 "use client";
 
 import { Experience } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/sanityClient";
 
 type Props = {
   experience: Experience;
