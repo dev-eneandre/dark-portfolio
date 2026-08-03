@@ -37,7 +37,6 @@ export default function Home({
     >
       <Head>
         <title>Andre Ene</title>
-        <link rel="icon" href="/image/small-logo.png" />
       </Head>
       <Header socials={socials} />
       <section id="hero" className="snap-start">

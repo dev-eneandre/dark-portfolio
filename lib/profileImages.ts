@@ -5,4 +5,6 @@ export const profileImages = {
   about: "/image/TC007075.jpg",
   /** Small avatar in the back-to-top footer */
   footer: "/image/TC007103.jpg",
+  /** Source for favicon generation (scripts/generate-favicons.sh) */
+  faviconSource: "/image/TC007103.jpg",
 } as const;
