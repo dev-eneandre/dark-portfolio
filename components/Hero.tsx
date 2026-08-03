@@ -106,7 +106,7 @@ function Hero({ pageInfo }: Props) {
           className="order-3 flex flex-col items-center gap-4 text-center lg:items-start lg:self-center lg:text-left"
         >
           <p className="text-sm uppercase font-semibold tracking-[0.2em] text-[#0891B2]">
-            Hi there, I'm Andre, 
+            Hi there, I&apos;m Andre Ene,
           </p>
 
           <p className="max-w-md font-nuni-sans text-sm leading-relaxed text-gray-400 line-clamp-3 lg:text-base lg:line-clamp-5">

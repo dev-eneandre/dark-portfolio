@@ -1,7 +1,7 @@
 "use client";
 
 import { Skill as SkillType } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/sanityClient";
 
 type Props = {
   skill: SkillType;
