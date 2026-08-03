@@ -1,14 +1,11 @@
-import Head from "next/head";
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import WorkExperience from "../components/WorkExperience";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import ContactMe from "../components/ContactMe";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import WorkExperience from "@/components/WorkExperience";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import ContactMe from "@/components/ContactMe";
 import Link from "next/link";
-import { GetServerSideProps } from "next";
-import { Experience, PageInfo, Project, Skill, Social } from "@/typings";
 import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchExperiences } from "@/utils/fetchExperiences";
 import { fetchSkill } from "@/utils/fetchSkills";
@@ -16,28 +13,22 @@ import { fetchProjects } from "@/utils/fetchProjects";
 import { fetchSocial } from "@/utils/fetchSocials";
 import { profileImages } from "@/lib/profileImages";
 
-type Props = {
-  pageInfo: PageInfo;
-  experiences: Experience[];
-  skills: Skill[];
-  projects: Project[];
-  socials: Social[];
-};
-export default function Home({
-  pageInfo,
-  experiences,
-  skills,
-  projects,
-  socials,
-}: Props) {
+export const revalidate = 60;
+
+export default async function Home() {
+  const [pageInfo, experiences, skills, projects, socials] = await Promise.all([
+    fetchPageInfo(),
+    fetchExperiences(),
+    fetchSkill(),
+    fetchProjects(),
+    fetchSocial(),
+  ]);
+
   return (
     <div
       data-scroll-container
       className="bg-[#0a0c15] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#0891B2]/80"
     >
-      <Head>
-        <title>Andre Ene</title>
-      </Head>
       <Header socials={socials} />
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
@@ -73,22 +64,3 @@ export default function Home({
     </div>
   );
 }
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkill();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocial();
-
-  return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-    },
-    // revalidate: 10,
-  };
-};

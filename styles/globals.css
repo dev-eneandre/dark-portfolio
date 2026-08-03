@@ -1,4 +1,4 @@
-/* Fonts are loaded via <link> tags in pages/_document.tsx.
+/* Fonts are loaded via <link> tags in app/layout.tsx.
    Turbopack strips @import of external stylesheets from CSS files. */
 
 @tailwind base;
