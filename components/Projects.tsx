@@ -1,7 +1,7 @@
 "use client";
 
 import { Project } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/sanityClient";
 import { motion, useReducedMotion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import SectionHeader from "./SectionHeader";

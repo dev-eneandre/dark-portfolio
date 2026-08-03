@@ -37,6 +37,7 @@ export default function ProjectCard({
             src={imageUrl || "/placeholder.svg"}
             alt={title}
             fill
+            sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1024px) calc(50vw - 100px), 320px"
             className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#12111f]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
